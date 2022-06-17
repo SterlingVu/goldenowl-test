@@ -1,0 +1,19 @@
+.mt-5
+  | User List
+  table.table.align-items-center.mt-2
+    thead.thead-light
+      tr
+        th ID
+        th Username
+        th Email
+    tbody
+      - @users.each do |user|
+        tr
+          td=user.id
+          td=link_to user.username, user_path(user)
+          td=user.email
+          td=link_to 'my following', view_my_following_user_path(user)
+          td=link_to 'my followers', view_my_followers_user_path(user)
+
+.mt-5
+  | Top 10 users with most followers

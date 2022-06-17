@@ -1,0 +1,14 @@
+.mt-5
+  | My Following
+  table.table.align-items-center.mt-2
+    thead.thead-light
+      tr
+        th ID
+        th Username
+        th Email
+    tbody
+      - if @my_following.length > 0
+        - @my_following.each do |following|
+          tr
+            td=User.find(following.following_id).username
+            td=User.find(following.following_id).email
